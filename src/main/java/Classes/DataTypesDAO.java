@@ -89,4 +89,3 @@ public class DataTypesDAO extends AbstractDAO {
         return dataTypesList;
     }
 }
-src/main/java/Classes/AbstractDAO.java
