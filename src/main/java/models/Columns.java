@@ -50,7 +50,7 @@ public class Columns {
 
     @Override
     public String toString() {
-        return "\n id: " + getId()  + "\n\n " + "card type: " + getTable()  + "\n\n " + "client: " + getDataType()
-                + "\n\n " + "number: " + getName();
+        return "\n id: " + getId()  + "\n\n " + "table: " + getTable()  + "\n\n " + "data type: " + getDataType()
+                + "\n\n " + "name: " + getName();
     }
 }

@@ -8,6 +8,11 @@ public class Tables {
     public Tables() {
     }
 
+    public Tables(Databases database, String name) {
+        this.database = database;
+        this.name = name;
+    }
+
     public Tables(int id ,Databases database, String name) {
         this.id = id;
         this.database = database;

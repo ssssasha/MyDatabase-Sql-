@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+
     private static final Logger LOGGER = LogManager.getLogger(DBConnection.class);
     private static DBConnection instance;
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";

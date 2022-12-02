@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabasesDAO extends AbstractDAO {
+
     private static final Logger LOGGER = LogManager.getLogger(DatabasesDAO.class);
 
     public Databases getDatabaseByID(int id) {

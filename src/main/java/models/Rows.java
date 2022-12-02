@@ -8,8 +8,7 @@ public class Rows {
     public Rows() {
     }
 
-    public Rows(int id ,Tables table, int number) {
-        this.id = id;
+    public Rows(Tables table, int number) {
         this.table = table;
         this.number = number;
     }
@@ -40,6 +39,6 @@ public class Rows {
 
     @Override
     public String toString() {
-        return "\n id: " + getId()  + "\n\n " + "database: " + getTable()  + "\n\n " + "name: " + getNumber();
+        return "\n id: " + getId()  + "\n\n " + "table: " + getTable()  + "\n\n " + "number: " + getNumber();
     }
 }

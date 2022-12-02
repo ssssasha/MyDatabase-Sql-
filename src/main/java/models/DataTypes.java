@@ -10,6 +10,10 @@ public class DataTypes {
     public DataTypes() {
     }
 
+    public DataTypes(int id) {
+        this.id = id;
+    }
+
     public DataTypes(String name) {
         this.name = name;
     }
@@ -51,6 +55,6 @@ public class DataTypes {
 
     @Override
     public String toString() {
-        return "\n id: " + getId()+ "\n " + "name: " + getName();
+        return "\n id: " + getId()+ "\n " + "type: " + getName();
     }
 }

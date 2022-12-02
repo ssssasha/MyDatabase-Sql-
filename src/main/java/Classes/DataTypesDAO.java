@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataTypesDAO extends AbstractDAO {
+
     private static final Logger LOGGER = LogManager.getLogger(DataTypesDAO.class);
 
     public DataTypes getDataTypeByID(int id) {
@@ -32,7 +33,25 @@ public class DataTypesDAO extends AbstractDAO {
         }return dataTypes;
     }
 
-    public void createDataType(DataTypes dataType) {
+    public DataTypes getDataTypeByName(String name) {
+        DataTypes dataTypes = new DataTypes();
+        try {
+            PreparedStatement statement = getConnection().prepareStatement("SELECT * FROM datatypes WHERE name = ?");
+            statement.setString(1,name);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    dataTypes.setId(resultSet.getInt("id"));
+                    dataTypes.setName(resultSet.getString("name"));
+                }
+            }
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+        }finally {
+            closeAll();
+        }return dataTypes;
+    }
+
+    public String createDataType(DataTypes dataType) {
         try {
             PreparedStatement statement = getConnection().prepareStatement("INSERT INTO " +
                     "datatypes (name) VALUES (?)");
@@ -44,6 +63,7 @@ public class DataTypesDAO extends AbstractDAO {
         } finally {
             closeAll();
         }
+        return "crested";
     }
 
     public void updateDataType(DataTypes dataType) {
@@ -60,7 +80,7 @@ public class DataTypesDAO extends AbstractDAO {
         }
     }
 
-    public void deleteDataTypes(DataTypes dataType) {
+    public void deleteDataType(DataTypes dataType) {
         try{
             PreparedStatement statement = getConnection().prepareStatement("DELETE FROM datatypes WHERE id = ?");
             statement.setInt(1, dataType.getId());
@@ -73,15 +93,15 @@ public class DataTypesDAO extends AbstractDAO {
         }
     }
 
-    public List<Databases> getAllDataTypes() {
-        List<Databases> dataTypesList = new ArrayList<>();
+    public List<DataTypes> getAllDataTypes() {
+        List<DataTypes> dataTypesList = new ArrayList<>();
         try {
             resultSet = getResultSet("SELECT * FROM datatypes");
             while (resultSet.next()) {
-                Databases database = new Databases();
-                database.setId(resultSet.getInt("id"));
-                database.setName(resultSet.getString("name"));
-                dataTypesList.add(database);
+                DataTypes dataTypes = new DataTypes();
+                dataTypes.setId(resultSet.getInt("id"));
+                dataTypes.setName(resultSet.getString("name"));
+                dataTypesList.add(dataTypes);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

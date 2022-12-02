@@ -50,7 +50,7 @@ public class Cells {
 
     @Override
     public String toString() {
-        return "\n id: " + getId()  + "\n\n " + "card type: " + getColumn()  + "\n\n " + "client: " + getRow()
-                + "\n\n " + "number: " + getValue();
+        return "\n id: " + getId()  + "\n\n " + "column: " + getColumn()  + "\n\n " + "row: " + getRow()
+                + "\n\n " + "value: " + getValue();
     }
 }

@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public abstract class AbstractDAO {
+
     private Statement statement;
     protected ResultSet resultSet;
     private Connection connection;
